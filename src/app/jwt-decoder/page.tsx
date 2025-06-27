@@ -27,15 +27,28 @@ export default function JwtDecoder() {
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <h1 className="text-xl font-bold">JWT Decoder</h1>
-      <textarea className="w-full h-24 p-2 border" value={token} onChange={e => setToken(e.target.value)} />
+      <textarea
+        className="w-full h-24 p-2 border border-gray-300 rounded"
+        value={token}
+        onChange={(e) => setToken(e.target.value)}
+      />
       <div>
-        <button className="px-4 py-1 bg-blue-600 text-white" onClick={decode}>Decode</button>
+        <button
+          className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onClick={decode}
+        >
+          Decode
+        </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <pre className="bg-gray-100 p-2 whitespace-pre-wrap">{header}</pre>
-        <pre className="bg-gray-100 p-2 whitespace-pre-wrap">{payload}</pre>
+        <pre className="bg-gray-100 p-2 whitespace-pre-wrap rounded border">
+          {header}
+        </pre>
+        <pre className="bg-gray-100 p-2 whitespace-pre-wrap rounded border">
+          {payload}
+        </pre>
       </div>
     </div>
   )

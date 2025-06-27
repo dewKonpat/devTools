@@ -49,18 +49,42 @@ export default function TextDiff() {
   const handle = () => setParts(diff(left, right))
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <h1 className="text-xl font-bold">Text Diff</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <textarea className="w-full h-40 p-2 border" value={left} onChange={e => setLeft(e.target.value)} />
-        <textarea className="w-full h-40 p-2 border" value={right} onChange={e => setRight(e.target.value)} />
+        <textarea
+          className="w-full h-40 p-2 border border-gray-300 rounded"
+          value={left}
+          onChange={(e) => setLeft(e.target.value)}
+        />
+        <textarea
+          className="w-full h-40 p-2 border border-gray-300 rounded"
+          value={right}
+          onChange={(e) => setRight(e.target.value)}
+        />
       </div>
       <div>
-        <button className="px-4 py-1 bg-blue-600 text-white" onClick={handle}>Compare</button>
+        <button
+          className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onClick={handle}
+        >
+          Compare
+        </button>
       </div>
-      <pre className="bg-gray-100 p-2 whitespace-pre-wrap">
+      <pre className="bg-gray-100 p-2 whitespace-pre-wrap rounded border">
         {parts.map((p, i) => (
-          <span key={i} className={p.type === 'added' ? 'bg-green-200' : p.type === 'removed' ? 'bg-red-200' : ''}>{p.value}</span>
+          <span
+            key={i}
+            className={
+              p.type === 'added'
+                ? 'bg-green-200'
+                : p.type === 'removed'
+                ? 'bg-red-200'
+                : ''
+            }
+          >
+            {p.value}
+          </span>
         ))}
       </pre>
     </div>
