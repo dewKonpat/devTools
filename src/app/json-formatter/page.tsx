@@ -15,13 +15,24 @@ export default function JsonFormatter() {
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <h1 className="text-xl font-bold">JSON Formatter</h1>
-      <textarea className="w-full h-40 p-2 border" value={input} onChange={e => setInput(e.target.value)} />
+      <textarea
+        className="w-full h-40 p-2 border border-gray-300 rounded"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
       <div>
-        <button className="px-4 py-1 bg-blue-600 text-white" onClick={format}>Format</button>
+        <button
+          className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onClick={format}
+        >
+          Format
+        </button>
       </div>
-      <pre className="bg-gray-100 p-2 whitespace-pre-wrap">{output}</pre>
+      <pre className="bg-gray-100 p-2 whitespace-pre-wrap rounded border">
+        {output}
+      </pre>
     </div>
   )
 }
